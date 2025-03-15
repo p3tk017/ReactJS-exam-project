@@ -1,29 +1,16 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Header from './components/Header'
+import HeroSection from './components/HeroSection'
+import Footer from './components/Footer'
 
 function App() {
 
   return (
     <>
-      <header>
-        <nav class="navbar">
-            <div class="logo">CologneShop</div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Brands</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-      </header>
+      <Header />
     
-      <section class="hero">
-          <h1>Discover Your Signature Scent</h1>
-          <p>Explore our collection of premium colognes.</p>
-          <button>Shop Now</button>
-      </section>
+      <HeroSection />
     
       <section class="products">
           <h2>Featured Colognes</h2>
@@ -46,9 +33,7 @@ function App() {
           </div>
       </section>
     
-      <footer>
-          <p>&copy; 2025 CologneShop. All rights reserved.</p>
-      </footer>
+      <Footer />
     </>
   )
 }

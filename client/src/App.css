@@ -18,21 +18,36 @@ body {
     list-style: none;
     display: flex;
     gap: 20px;
+    padding-right: 1em;
 }
 .nav-links a {
     color: white;
     text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 1.2em;
+    padding: 0.5em;
 }
+.nav-links a:hover {
+    color: #874bd1;
+    transform: scale(1.1);
+}
+
+.logo{
+    padding-left: 1em;
+    font-size: 2em;
+    font-weight: lighter;
+}
+
 .hero {
     text-align: center;
-    padding: 80px;
+    padding: 100px;
     background: url('https://format.creatorcdn.com/197746a2-cfa6-4d50-ac4c-f71f38fa4b9c/0/0/0/0,0,2000,1125,1600,1200/0-0-0/640f0927-314b-46ff-8000-e03b577cf917/1/2/OSC_STILL-LIFE_SHOT-03-B.jpg?fjkss=exp=2055188884~hmac=b66a0eb67219e34622984b81df1ffff71e50170ce0a3ae0c7b15505b20bf8fa0') no-repeat center center/cover;
     color: white;
     font-size: 1.5em;
 }
 .hero button {
     padding: 10px 20px;
-    background: #ff6600;
+    background: #874bd1;
     border: none;
     color: white;
     cursor: pointer;
