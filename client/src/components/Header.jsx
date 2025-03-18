@@ -4,7 +4,7 @@ export default function Header() {
     return (
         <header>
             <nav className="navbar">
-                <div className="logo">CologneShop</div>
+                <div className="logo">CologneWorld</div>
                 <ul className="nav-links">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/catalog">Catalog</Link></li>
@@ -12,7 +12,7 @@ export default function Header() {
                     <li><Link to="#">Register</Link></li>
                     <li><Link to="#">Login</Link></li>
                     <li><Link to="#">Logout</Link></li>
-                    <li><Link to="#">Contact</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
                     <li><Link to="/about">About</Link></li>
                 </ul>
             </nav>

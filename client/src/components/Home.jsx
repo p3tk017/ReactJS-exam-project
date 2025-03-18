@@ -1,10 +1,12 @@
+import { Link } from "react-router";
+
 export default function Home() {
     return (
         <>
             <section className="hero">
                 <h1>Discover Your Signature Scent</h1>
                 <p>Explore our collection of premium colognes.</p>
-                <button>View Now</button>
+                <Link id="button" to="/catalog">View Now</Link>
             </section>
         
             <section className="products">

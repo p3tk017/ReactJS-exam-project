@@ -57,13 +57,14 @@ html, body {
     color: white;
     font-size: 1.5em;
 }
-.hero button {
+.hero #button {
     padding: 10px 20px;
     background: #874bd1;
     border: none;
     color: white;
     cursor: pointer;
     font-size: 1rem;
+    text-decoration: none;
 }
 .products {
     padding: 50px;

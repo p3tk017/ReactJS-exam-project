@@ -7,17 +7,19 @@ export default function About() {
             <h1 className={styles.heading}>About Us</h1>
             <div className={styles.aboutContent}>
                 <p>
-                    Welcome to CologneShop, your ultimate destination for premium fragrances. 
-                    Our passion for scents drives us to bring you the finest colognes from world-renowned brands.
+                    Welcome to Cologne World, your ultimate destination for exploring and cataloging 
+                    the world of perfumes. Our platform is dedicated to preserving the history, artistry, 
+                    and craftsmanship of fragrances from renowned brands and independent perfumers alike.
                 </p>
                 <p>
-                    We believe that a great fragrance has the power to transform your mood, boost your confidence, 
-                    and leave a lasting impression. Our carefully curated selection ensures that you find the perfect 
-                    scent to match your personality and style.
+                    We believe that every fragrance tells a story, and our mission is to document and share 
+                    these olfactory experiences with enthusiasts and collectors. Whether you are looking for 
+                    details about a classic perfume, niche creations, or limited editions, our archive serves 
+                    as a valuable resource.
                 </p>
                 <p>
-                    Thank you for choosing CologneShop. We are committed to providing you with the best shopping 
-                    experience and top-quality fragrances.
+                    Thank you for visiting Fragrance Archive. We are committed to continuously expanding our 
+                    collection and providing an insightful and engaging experience for all fragrance lovers.
                 </p>
             </div>
         </div>
