@@ -1,0 +1,20 @@
+{
+    "1": { 
+        "brand": "Xerjoff", 
+        "name": "Erba Pura", 
+        "price": "$159.99", 
+        "image": "https://cdn.notinoimg.com/detail_main_mq/xerjoff/2800018180231_01-o/erba-pura___240808.jpg" 
+    },
+    "2":{ 
+        "brand": "Creed", 
+        "name": "Aventus", 
+        "price": "$299.99", 
+        "image": "https://cdn.notinoimg.com/detail_main_mq/creed/3508441001114_01n-o/aventus___180419.jpg" 
+    },
+    "3":{
+        "brand": "Dior", 
+        "name": "Sauvage", 
+        "price": "$99.99", 
+        "image": "https://cdn.notinoimg.com/detail_main_mq/dior/3348901486392_01/sauvage___200828.jpg" 
+    }   
+}
