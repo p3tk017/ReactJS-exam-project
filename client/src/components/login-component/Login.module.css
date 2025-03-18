@@ -1,0 +1,49 @@
+.loginContainer {
+    text-align: center;
+    padding: 50px;
+    background-color: #f9f9f9;
+}
+
+.heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+.loginForm label {
+    font-weight: bold;
+    text-align: left;
+}
+
+.loginForm input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.loginForm button {
+    padding: 10px;
+    background: #874bd1;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.loginForm button:hover {
+    background: #6a37a4;
+}
+
+.registerLink {
+    text-decoration: none;
+}

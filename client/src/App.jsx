@@ -8,6 +8,7 @@ import Brands from './components/brands-component/Brands'
 import About from './components/about-component/About'
 import Contact from './components/contact-component/Contact'
 import Register from './components/register-component/Register'
+import Login from './components/login-component/Login'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/register" element={<Register/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
 
       <Footer />
