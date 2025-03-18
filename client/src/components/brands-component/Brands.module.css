@@ -1,4 +1,4 @@
-.catalogContainer {
+.brandsContainer {
     text-align: center;
     padding: 50px;
     background-color: #f9f9f9;
@@ -10,14 +10,14 @@
     color: #333;
 }
 
-.productGrid {
+.brandGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
 }
 
-.productCard {
+.brandCard {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: white;
     padding: 15px;
@@ -26,26 +26,26 @@
     text-align: center;
 }
 
-.productCard:hover {
+.brandCard:hover {
     transform: translateY(-5px);
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.productImage {
-    width: 100%;
-    height: 250px;
+.brandLogo {
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     border-radius: 10px;
     background-color: white;
 }
 
-.productName {
+.brandName {
     font-size: 1.2rem;
     margin: 10px 0;
     color: #333;
 }
 
-.productPrice {
+.brandType {
     font-size: 1.1rem;
     color: #874bd1;
     font-weight: bold;

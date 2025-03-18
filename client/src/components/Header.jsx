@@ -8,13 +8,12 @@ export default function Header() {
                 <ul className="nav-links">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/catalog">Catalog</Link></li>
-                    <li><Link to="#">Brands</Link></li>
+                    <li><Link to="/brands">Brands</Link></li>
                     <li><Link to="#">Register</Link></li>
                     <li><Link to="#">Login</Link></li>
                     <li><Link to="#">Logout</Link></li>
                     <li><Link to="#">Contact</Link></li>
-                    <li><Link to="#">About</Link></li>
-                    
+                    <li><Link to="/about">About</Link></li>
                 </ul>
             </nav>
         </header>

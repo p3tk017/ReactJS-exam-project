@@ -1,11 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-body {
-    font-family: Ubuntu, sans-serif;
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: Ubuntu, sans-serif;
 }
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -81,9 +93,17 @@ body {
     border-radius: 10px;
     background-color: white;
 }
+
+.productPrice {
+    font-size: 1.1rem;
+    color: #874bd1;
+    font-weight: bold;
+}
+
 footer {
     text-align: center;
     padding: 15px;
     background-color: #333;
     color: white;
+    margin-top: auto;
 }
