@@ -7,6 +7,7 @@ import Catalog from './components/catalog-component/Catalog'
 import Brands from './components/brands-component/Brands'
 import About from './components/about-component/About'
 import Contact from './components/contact-component/Contact'
+import Register from './components/register-component/Register'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/brands" element={<Brands/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/register" element={<Register/>} />
       </Routes>
 
       <Footer />

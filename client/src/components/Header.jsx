@@ -9,7 +9,7 @@ export default function Header() {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/catalog">Catalog</Link></li>
                     <li><Link to="/brands">Brands</Link></li>
-                    <li><Link to="#">Register</Link></li>
+                    <li><Link to="/register">Register</Link></li>
                     <li><Link to="#">Login</Link></li>
                     <li><Link to="#">Logout</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
