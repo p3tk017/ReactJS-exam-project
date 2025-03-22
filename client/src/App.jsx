@@ -9,6 +9,7 @@ import About from './components/about-component/About'
 import Contact from './components/contact-component/Contact'
 import Register from './components/register-component/Register'
 import Login from './components/login-component/Login'
+import NotFound from './components/404-component/404'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
 
       <Footer />

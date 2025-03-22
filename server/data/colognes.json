@@ -2,19 +2,25 @@
     "1": { 
         "brand": "Xerjoff", 
         "name": "Erba Pura", 
+        "type": "niche",
         "price": "$159.99", 
-        "image": "https://cdn.notinoimg.com/detail_main_mq/xerjoff/2800018180231_01-o/erba-pura___240808.jpg" 
+        "image": "https://cdn.notinoimg.com/detail_main_mq/xerjoff/2800018180231_01-o/erba-pura___240808.jpg",
+        "description": "Feel the joy that a basket of fresh Sicilian citrus brings to an afternoon beach party somewhere on the shores of the Mediterranean. The scent of the unisex Eau de Parfum Xerjoff Erba Pura was created to be a hymn to the beauty of life. The composition caresses the senses like a warm Mediterranean sun and reminds us that the pleasures in the world are created to be experienced." 
     },
     "2":{ 
         "brand": "Creed", 
         "name": "Aventus", 
+        "type": "niche",
         "price": "$299.99", 
-        "image": "https://cdn.notinoimg.com/detail_main_mq/creed/3508441001114_01n-o/aventus___180419.jpg" 
+        "image": "https://cdn.notinoimg.com/detail_main_mq/creed/3508441001114_01n-o/aventus___180419.jpg",
+        "description": "This renowned niche fragrance combines the finest carefully selected ingredients, tradition and exceptional craftsmanship. Creed Aventus Eau de Parfum, created through the joint efforts of father and son, is provocative, masculine and optimistic." 
     },
     "3":{
         "brand": "Dior", 
-        "name": "Sauvage", 
+        "name": "Sauvage",
+        "type": "designer", 
         "price": "$99.99", 
-        "image": "https://cdn.notinoimg.com/detail_main_mq/dior/3348901486392_01/sauvage___200828.jpg" 
+        "image": "https://cdn.notinoimg.com/detail_main_mq/dior/3348901486392_01/sauvage___200828.jpg",
+        "description": "A new, highly concentrated interpretation of Sauvage, combining exceptional freshness with warm oriental tones and a stormy beauty that comes to life on the skin. François Demachy, Dior perfumer, draws inspiration from the pristine beauty of the wild, sprawling untamed under the dark blue night sky, while the intense scents of crackling fire rise into the air. The scent of a new frontier: an interpretation with an enriched, intoxicating accord that celebrates the magic of nature. “Sauvage is a score without end." 
     }   
 }
