@@ -11,6 +11,7 @@ import Register from './components/register-component/Register'
 import Login from './components/login-component/Login'
 import NotFound from './components/404-component/404'
 import CologneDetails from './components/cologne-details-component/CologneDetails'
+import BrandDetails from './components/brand-details-component/BrandDetails'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/catalog" element={<Catalog/>} />
         <Route path="/catalog/:cologneId" element={<CologneDetails/>} />
         <Route path="/brands" element={<Brands/>} />
+        <Route path="/brands/:brandId" element={<BrandDetails/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/register" element={<Register/>} />

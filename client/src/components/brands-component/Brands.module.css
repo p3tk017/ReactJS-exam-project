@@ -43,10 +43,12 @@
     font-size: 1.2rem;
     margin: 10px 0;
     color: #333;
+    text-decoration: none;
 }
 
 .brandType {
     font-size: 1.1rem;
     color: #874bd1;
     font-weight: bold;
+    text-decoration: none;
 }
