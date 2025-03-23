@@ -10,6 +10,7 @@ import Contact from './components/contact-component/Contact'
 import Register from './components/register-component/Register'
 import Login from './components/login-component/Login'
 import NotFound from './components/404-component/404'
+import CologneDetails from './components/cologne-details-component/CologneDetails'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog/>} />
+        <Route path="/catalog/:cologneId" element={<CologneDetails/>} />
         <Route path="/brands" element={<Brands/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
