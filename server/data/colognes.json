@@ -1,5 +1,6 @@
 {
     "1": { 
+        "id": "1",
         "brand": "Xerjoff", 
         "name": "Erba Pura", 
         "type": "niche",
@@ -8,6 +9,7 @@
         "description": "Feel the joy that a basket of fresh Sicilian citrus brings to an afternoon beach party somewhere on the shores of the Mediterranean. The scent of the unisex Eau de Parfum Xerjoff Erba Pura was created to be a hymn to the beauty of life. The composition caresses the senses like a warm Mediterranean sun and reminds us that the pleasures in the world are created to be experienced." 
     },
     "2":{ 
+        "id": "2",
         "brand": "Creed", 
         "name": "Aventus", 
         "type": "niche",
@@ -16,11 +18,21 @@
         "description": "This renowned niche fragrance combines the finest carefully selected ingredients, tradition and exceptional craftsmanship. Creed Aventus Eau de Parfum, created through the joint efforts of father and son, is provocative, masculine and optimistic." 
     },
     "3":{
+        "id": "3",
         "brand": "Dior", 
         "name": "Sauvage",
         "type": "designer", 
         "price": "$99.99", 
         "image": "https://cdn.notinoimg.com/detail_main_mq/dior/3348901486392_01/sauvage___200828.jpg",
         "description": "A new, highly concentrated interpretation of Sauvage, combining exceptional freshness with warm oriental tones and a stormy beauty that comes to life on the skin. François Demachy, Dior perfumer, draws inspiration from the pristine beauty of the wild, sprawling untamed under the dark blue night sky, while the intense scents of crackling fire rise into the air. The scent of a new frontier: an interpretation with an enriched, intoxicating accord that celebrates the magic of nature. “Sauvage is a score without end." 
-    }   
+    },
+    "4": {
+        "id": "4",
+        "brand": "Creed",
+        "name": "Viking",
+        "type": "niche",
+        "price": "$495.99",
+        "image": "https://cdn.notinoimg.com/detail_main_mq/creed/3508441001169_01-o/viking___180308.jpg",
+        "description": "A bold and fiery men's fragrance, Viking bottles the fearless spirit of boundless exploration for the modern man who goes against the grain."
+    }
 }

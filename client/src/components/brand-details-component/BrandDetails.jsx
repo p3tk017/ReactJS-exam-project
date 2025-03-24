@@ -1,4 +1,4 @@
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styles from './BrandDetails.module.css';
 
@@ -10,15 +10,15 @@ export default function BrandDetails() {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:3030/jsonstore/brands/${brandId}`)
+        fetch(`http://localhost:3030/jsonstore/brands`)
             .then(res => {
-                if (!res.ok) {
-                    throw new Error("Brand not found");
-                }
                 return res.json();
             })
             .then(data => {
-                setBrand(data);
+                const selectedBrand = data[brandId];
+                if (!selectedBrand) throw new Error("Brand not found");
+
+                setBrand(selectedBrand);
             })
             .catch((err) => {
                 setError(true);
@@ -43,7 +43,7 @@ export default function BrandDetails() {
                 console.log(err);
             });
     }, [brand]);
-
+    
     if (loading) return <p>Loading...</p>;
     if (error || !brand) return <Navigate to="/404" />;
 
@@ -61,10 +61,12 @@ export default function BrandDetails() {
             <div className={styles.catalogContainer}>
                 {fragrances.length > 0 ? (
                     fragrances.map(frag => (
-                        <div key={frag.id} className={styles.productCard}>
-                            <img src={frag.image} alt={frag.name} />
-                            <h2>{frag.name}</h2>
-                        </div>
+                        <Link to={`/catalog/${frag.id}`} key={frag.id}>
+                            <div className={styles.productCard}>
+                                <img src={frag.image} alt={frag.name} />
+                                <h2>{frag.name}</h2>
+                            </div>
+                        </Link>
                     ))
                 ) : (
                     <p>No fragrances found for this brand.</p>
@@ -73,3 +75,5 @@ export default function BrandDetails() {
         </div>
     );
 }
+
+//fil

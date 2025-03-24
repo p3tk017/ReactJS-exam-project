@@ -13,8 +13,8 @@ export default function Catalog() {
             <h2 className={styles.heading}>Whole Collection</h2>
             <div className={styles.productGrid}>
                 {products.map(product => (
-                    <Link to={`/catalog/${product.id}`}>
-                        <div key={product.id} className={styles.productCard}>
+                    <Link to={`/catalog/${product.id}`} key={product.id}>
+                        <div className={styles.productCard}>
                             <img src={product.image} alt={product.name} className={styles.productImage} />
                             <h3 className={styles.productName}>{product.brand}</h3>
                             <p>{product.name}</p>
