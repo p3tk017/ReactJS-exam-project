@@ -1,4 +1,6 @@
 import {Routes, Route} from 'react-router'
+import { useState, useEffect } from 'react'
+import { Navigate } from 'react-router'
 import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -12,8 +14,22 @@ import Login from './components/login-component/Login'
 import NotFound from './components/404-component/404'
 import CologneDetails from './components/cologne-details-component/CologneDetails'
 import BrandDetails from './components/brand-details-component/BrandDetails'
+import Logout from './components/logout-component/Logout'
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+      const token = localStorage.getItem("authToken");
+      if (token) {
+          fetch("http://localhost:3030/users/me", {  
+              headers: {"X-Authorization": token},
+          })
+          .then(res => res.json())
+          .then(userData => setUser(userData))
+          .catch(() => setUser(null));  
+      }
+  }, []);
 
   return (
     <>
@@ -27,8 +43,9 @@ function App() {
         <Route path="/brands/:brandId" element={<BrandDetails/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
-        <Route path="/register" element={<Register/>} />
-        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={user ? <Navigate to="/" /> : <Register setUser={setUser} />} />
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login setUser={setUser} />} />
+        <Route path="/logout" element={<Logout setUser={setUser} />} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
 

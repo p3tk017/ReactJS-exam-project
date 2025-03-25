@@ -1,20 +1,45 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import styles from './Login.module.css';
 
-export default function Login() {
+export default function Login({ setUser }) {
     const [formData, setFormData] = useState({
-        email: '',
-        password: '',
+        email: "",
+        password: ""
     });
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('User logged in:', formData);
+        setError(null);
+
+        try {
+            const res = await fetch("http://localhost:3030/users/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+
+            if (!res.ok) {
+                throw new Error("Invalid email or password!");
+            }
+
+            const data = await res.json();
+            localStorage.setItem("authToken", data.accessToken);
+            setUser(data);
+            navigate("/"); 
+        } catch (err) {
+            setError(err.message);
+        }
     };
 
     return (

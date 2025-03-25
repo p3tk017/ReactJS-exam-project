@@ -11,7 +11,7 @@ export default function Header() {
                     <li><Link to="/brands">Brands</Link></li>
                     <li><Link to="/register">Register</Link></li>
                     <li><Link to="/login">Login</Link></li>
-                    <li><Link to="#">Logout</Link></li>
+                    <li><Link to="/logout">Logout</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
                     <li><Link to="/about">About</Link></li>
                 </ul>
