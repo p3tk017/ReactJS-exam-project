@@ -727,7 +727,7 @@
     }
 
     /*
-     * This service requires storage and auth plugins
+     * This service requires storage and auth plugins peter@abv.bg
      */
 
     const dataService$1 = new Service_1();

@@ -15,6 +15,7 @@ import NotFound from './components/404-component/404'
 import CologneDetails from './components/cologne-details-component/CologneDetails'
 import BrandDetails from './components/brand-details-component/BrandDetails'
 import Logout from './components/logout-component/Logout'
+import BrandCreate from './components/create-brand-component/CreateBrand'
 
 function App() {
   const [user, setUser] = useState(null);
@@ -33,7 +34,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header isLogged={user} />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -41,6 +42,7 @@ function App() {
         <Route path="/catalog/:cologneId" element={<CologneDetails/>} />
         <Route path="/brands" element={<Brands/>} />
         <Route path="/brands/:brandId" element={<BrandDetails/>} />
+        <Route path="/brands/create" element={<BrandCreate/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/register" element={user ? <Navigate to="/" /> : <Register setUser={setUser} />} />

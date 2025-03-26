@@ -1,34 +1,73 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import styles from './Register.module.css';
 
-export default function Register() {
-    const [formData, setFormData] = useState({
-        username: '',
-        email: '',
-        password: '',
-    });
+export default function Register({ setUser }) {
+    
 
+    const [formData, setFormData] = useState({
+        email: "",
+        password: "",
+        confirmPassword: ""
+    });
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
+
+    // Handles input change and updates state
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
     };
 
-    const handleSubmit = (e) => {
+    // Handles form submission
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('User registered:', formData);
+        setError(null);
+
+        if (formData.password !== formData.confirmPassword) {
+            setError("Passwords do not match!");
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:3030/users/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: formData.email,
+                    password: formData.password
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error("Registration failed!");
+            }
+
+            const data = await response.json();
+            localStorage.setItem("authToken", data.accessToken); // Store token
+            navigate("/"); // Redirect to home page
+
+        } catch (err) {
+            setError(err.message);
+        }
     };
 
     return (
         <div className={styles.registerContainer}>
             <h1 className={styles.heading}>Register</h1>
             <form className={styles.registerForm} onSubmit={handleSubmit}>
-                <label>Username</label>
-                <input type="text" name="username" value={formData.username} onChange={handleChange} required />
-                
                 <label>Email</label>
                 <input type="email" name="email" value={formData.email} onChange={handleChange} required />
                 
                 <label>Password</label>
                 <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+
+                <label>Confirm Password</label>
+                <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
                 
                 <button type="submit">Register</button>
             </form>
