@@ -1,6 +1,6 @@
 {
     "1": {
-        "id": "1",
+        "_id": "1",
         "name": "Creed",
         "description": "The House of Creed is an authentic, luxury house dedicated to the creation of highly original fragrances made from exquisite ingredients. The legend of the brand begins in 1760 when a pair of scented leather gloves was delivered to King George III by a new London tailoring company. Founded by James Henry Creed in the same year as the young King’s accession, The House of Creed has created fragrances for the discerning  for over 260 years.",
         "logo": "https://logos-download.com/wp-content/uploads/2021/01/Creed_1760_Logo.png",
@@ -8,7 +8,7 @@
         "type": "niche"
     },
     "2": {
-        "id": "2",
+        "_id": "2",
         "name": "Dior",
         "description": "Christian Dior SE, commonly known as Dior, is a French luxury goods company controlled and chaired by French businessman Bernard Arnault, who also heads LVMH, the world's largest luxury group.",
         "logo": "https://cdn.freebiesupply.com/logos/large/2x/dior-logo-png-transparent.png",
@@ -16,7 +16,7 @@
         "type": "designer"
     },
     "3": {
-        "id": "3",
+        "_id": "3",
         "name": "Xerjoff",  
         "description": "Xerjoff is an Italian fragrance company from Turin founded in 2007 by Sergio Momo and Dominique Salvo and is known for its high-quality fragrances.",
         "logo": "/brandsLogos/idA_FHUBtQ_1742313404362.png",

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from './Register.module.css';
 
 export default function Register({ setUser }) {
-    
+
 
     const [formData, setFormData] = useState({
         email: "",
@@ -13,7 +13,6 @@ export default function Register({ setUser }) {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    // Handles input change and updates state
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -21,7 +20,6 @@ export default function Register({ setUser }) {
         });
     };
 
-    // Handles form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
@@ -48,8 +46,9 @@ export default function Register({ setUser }) {
             }
 
             const data = await response.json();
-            localStorage.setItem("authToken", data.accessToken); // Store token
-            navigate("/"); // Redirect to home page
+            localStorage.setItem("authToken", data.accessToken);
+            navigate("/");
+            location.reload();
 
         } catch (err) {
             setError(err.message);

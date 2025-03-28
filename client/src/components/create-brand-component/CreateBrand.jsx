@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./CreateBrand.module.css";
 
-export default function BrandCreate() {
+export default function BrandCreate({user}) {   
     const [formData, setFormData] = useState({
         name: "",
         description: "",
         logo: "",
         country: "",
-        type: ""
+        type: "",
+        ownerId: user._id
     });
 
     const [error, setError] = useState(null);
@@ -49,7 +50,7 @@ export default function BrandCreate() {
             navigate("/brands"); // Redirect to brand list
 
         } catch (err) {
-            setError(err.message);
+            setError(err.message);  
         }
     };
 

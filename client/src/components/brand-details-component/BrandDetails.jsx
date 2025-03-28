@@ -71,6 +71,10 @@ export default function BrandDetails() {
                 ) : (
                     <p>No fragrances found for this brand.</p>
                 )}
+
+                <Link to="#" className={styles.addButton}>
+                    <i className="fa-solid fa-plus"></i>
+                </Link>
             </div>
         </div>
     );
