@@ -14,8 +14,6 @@ export default function Brands() {
         })
         .catch(err => console.log(err));
     }, []); 
-
-    console.log(brands);
     
     return (
         <div className={styles.brandsContainer}>
