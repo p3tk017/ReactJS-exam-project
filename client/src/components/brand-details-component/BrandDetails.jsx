@@ -2,12 +2,14 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styles from './BrandDetails.module.css';
 
-export default function BrandDetails() {
+export default function BrandDetails({user}) {
     const { brandId } = useParams();
     const [brand, setBrand] = useState(null);
     const [fragrances, setFragrances] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+
+    const isOwner = user && user._id === brand?.ownerId;
 
     useEffect(() => {
         fetch(`http://localhost:3030/jsonstore/brands`)
@@ -72,12 +74,12 @@ export default function BrandDetails() {
                     <p>No fragrances found for this brand.</p>
                 )}
 
-                <Link to="#" className={styles.addButton}>
-                    <i className="fa-solid fa-plus"></i>
-                </Link>
+                {isOwner && (
+                    <Link to="#" className={styles.addButton}>
+                        <i className="fa-solid fa-plus"></i>
+                    </Link>
+                )}
             </div>
         </div>
     );
 }
-
-//fil
