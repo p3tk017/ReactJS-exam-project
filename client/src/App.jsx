@@ -16,6 +16,7 @@ import CologneDetails from './components/cologne-details-component/CologneDetail
 import BrandDetails from './components/brand-details-component/BrandDetails'
 import Logout from './components/logout-component/Logout'
 import BrandCreate from './components/create-brand-component/CreateBrand'
+import CologneCreate from './components/cologne-create-component/CologneCreate'
 
 function App() {
   const [user, setUser] = useState(null);
@@ -43,6 +44,7 @@ function App() {
         <Route path="/brands" element={<Brands/>} />
         <Route path="/brands/:brandId" element={<BrandDetails user={user}/>} />
         <Route path="/brands/create" element={!user ? <Navigate to="/" /> : <BrandCreate user={user}/>} />
+        <Route path="/brands/add-cologne/:brandId" element={<CologneCreate user={user}/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/register" element={user ? <Navigate to="/" /> : <Register setUser={setUser} />} />

@@ -75,7 +75,7 @@ export default function BrandDetails({user}) {
                 )}
 
                 {isOwner && (
-                    <Link to="#" className={styles.addButton}>
+                    <Link to={`/brands/add-cologne/${brand._id}`} className={styles.addButton}>
                         <i className="fa-solid fa-plus"></i>
                     </Link>
                 )}
