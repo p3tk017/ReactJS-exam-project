@@ -47,7 +47,7 @@ export default function BrandCreate({user}) {
                 throw new Error("Failed to create brand!");
             }
 
-            navigate("/brands"); // Redirect to brand list
+            navigate("/brands");
 
         } catch (err) {
             setError(err.message);  

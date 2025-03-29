@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "./CologneCreate.module.css";
 
 export default function CologneCreate({ user }) {
@@ -10,10 +10,13 @@ export default function CologneCreate({ user }) {
     const [formData, setFormData] = useState({
         name: "",
         brand: "",
+        price: "",
         type: "",
         image: "",
         description: "",
     });
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:3030/jsonstore/brands`)
@@ -46,7 +49,7 @@ export default function CologneCreate({ user }) {
 
     const isOwner = user?._id === brand?.ownerId;
     if (!isOwner) {
-        return <Navigate to="/" />;
+        navigate("/");
     }
 
     const handleChange = (e) => {
@@ -63,8 +66,7 @@ export default function CologneCreate({ user }) {
         })
         .then(res => res.json())
         .then(() => {
-            alert("Cologne created successfully!");
-            setFormData({ name: "", brand: brand.name, type: brand.type, image: "", description: "" });
+            navigate("/catalog");
         })
         .catch(err => console.error("Error:", err));
     };
@@ -78,6 +80,9 @@ export default function CologneCreate({ user }) {
 
                 <label>Brand:</label>
                 <input type="text" name="brand" value={formData.brand} onChange={handleChange} required />
+                
+                <label>Price:</label>
+                <input type="text" name="price" value={formData.price} onChange={handleChange} required />
 
                 <label>Type:</label>
                 <select name="type" value={formData.type} onChange={handleChange} required>
