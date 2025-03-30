@@ -1,6 +1,21 @@
 import { Link } from "react-router";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+    const [colognes, setColognes] = useState([]);
+    
+        useEffect(() => {
+            fetch("http://localhost:3030/jsonstore/colognes")
+                .then(res => res.json())
+                .then(data => {
+                    const formattedColognes = Object.values(data);
+                    setColognes(formattedColognes);
+                })
+                .catch(err => console.log(err));
+        }, []);
+
+    console.log(colognes);
+
     return (
         <>
             <section className="hero">
@@ -12,24 +27,16 @@ export default function Home() {
             <section className="products">
                 <h2>Featured Colognes</h2>
                 <div className="product-grid">
-                    <div className="product">
-                        <img src="https://cdn.notinoimg.com/detail_main_mq/armani/3614272225718_01-o/emporio-stronger-with-you-intensely___190118.jpg" alt="Cologne" />
-                        <h3>Emporio Armani</h3>
-                        <p>Stronger With You Intensly</p>
-                        <p className="productPrice">$119.99</p>
-                    </div>
-                    <div className="product">
-                        <img src="https://cdn.notinoimg.com/detail_main_mq/xerjoff/2800018180231_01-o/erba-pura___240808.jpg" alt="Cologne" />
-                        <h3>Xerjoff</h3>
-                        <p>Ebra Pura</p>
-                        <p className="productPrice">$228.99</p>
-                    </div>
-                    <div className="product">
-                        <img src="https://cdn.notinoimg.com/detail_main_mq/montale/mntincu_aedp10_01-o/intense-cafe___150210.jpg" alt="Cologne" />
-                        <h3>Montale</h3>
-                        <p>Intense Cafe</p>
-                        <p className="productPrice">$179.99</p>
-                    </div>
+                    {colognes.slice(0, 3).map(product => (
+                        <Link to={`/catalog/${product._id}`} key={product._id}>
+                            <div className="product" key={product._id}>
+                                <img src={product.image} alt={product.name} />
+                                <h3>{product.brand}</h3>
+                                <p>{product.name}</p>
+                                <p className="productPrice">${product.price}</p>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </section>
         </>

@@ -11,7 +11,7 @@ export default function Contact() {
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                         <FaFacebook />
                     </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://instagram.com/_p3tk0_" target="_blank" rel="noopener noreferrer">
                         <FaInstagram />
                     </a>
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">

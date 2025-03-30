@@ -63,7 +63,7 @@ export default function BrandDetails({user}) {
             <div className={styles.catalogContainer}>
                 {fragrances.length > 0 ? (
                     fragrances.map(frag => (
-                        <Link to={`/catalog/${frag.id}`} key={frag.id}>
+                        <Link to={`/catalog/${frag._id}`} key={frag._id}>
                             <div className={styles.productCard}>
                                 <img src={frag.image} alt={frag.name} />
                                 <h2>{frag.name}</h2>
