@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "./CologneCreate.module.css";
+import { UserContext } from "../../contexts/userContext";
 
-export default function CologneCreate({ user }) {
+export default function CologneCreate() {
     const { brandId } = useParams();
     const [brand, setBrand] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -15,6 +16,8 @@ export default function CologneCreate({ user }) {
         image: "",
         description: "",
     });
+
+    const { user } = useContext(UserContext);
 
     const navigate = useNavigate();
 

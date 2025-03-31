@@ -1,13 +1,16 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import styles from './BrandDetails.module.css';
+import { UserContext } from '../../contexts/userContext';
 
-export default function BrandDetails({user}) {
+export default function BrandDetails() {
     const { brandId } = useParams();
     const [brand, setBrand] = useState(null);
     const [fragrances, setFragrances] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+
+    const { user } = useContext(UserContext);
 
     const isOwner = user && user._id === brand?.ownerId;
 
@@ -45,7 +48,7 @@ export default function BrandDetails({user}) {
                 console.log(err);
             });
     }, [brand]);
-    
+
     if (loading) return <p>Loading...</p>;
     if (error || !brand) return <Navigate to="/404" />;
 

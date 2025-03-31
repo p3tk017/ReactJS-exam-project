@@ -7,7 +7,6 @@
     gap: 40px;
 }
 
-/* Brand Info Section */
 .brandInfo {
     display: flex;
     align-items: center;
@@ -48,10 +47,8 @@
     line-height: 1.5;
 }
 
-/* Fragrances Catalog Section */
 .catalogContainer {
     display: flex;
-    /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
     gap: 20px;
     overflow: scroll;
     text-decoration: none;
@@ -89,7 +86,6 @@
     text-decoration: none;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .brandInfo {
         flex-direction: column;
@@ -116,5 +112,22 @@
 }
 
 .addButton:hover {
+    background-color: #6a2c9a;
+}
+
+.likeButton{
+    background-color: #874bd1;
+    color: white;
+    padding: 10px 15px;
+    margin: auto 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    max-height: 40px;
+}
+
+.likeButton:hover {
     background-color: #6a2c9a;
 }

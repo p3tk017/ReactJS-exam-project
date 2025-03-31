@@ -1,6 +1,7 @@
 import {Routes, Route} from 'react-router'
 import { useState, useEffect } from 'react'
 import { Navigate } from 'react-router'
+import { UserContext } from './contexts/userContext'
 import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -34,7 +35,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <UserContext.Provider value={{user}}>
       <Header isLogged={user} />
 
       <Routes>
@@ -54,7 +55,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </>
+    </UserContext.Provider>
   )
 }
 

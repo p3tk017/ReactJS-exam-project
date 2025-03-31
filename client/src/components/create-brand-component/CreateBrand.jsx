@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./CreateBrand.module.css";
+import { UserContext } from "../../contexts/userContext";
 
-export default function BrandCreate({user}) {   
+export default function BrandCreate() {   
     const [formData, setFormData] = useState({
         name: "",
         description: "",
@@ -12,10 +13,11 @@ export default function BrandCreate({user}) {
         ownerId: user._id
     });
 
+    const {user} = useContext(UserContext);
+
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    // Handles input change
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -23,12 +25,10 @@ export default function BrandCreate({user}) {
         });
     };
 
-    // Handles form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
 
-        // Basic validation
         if (!formData.name || !formData.description || !formData.logo || !formData.country || !formData.type) {
             setError("All fields are required!");
             return;

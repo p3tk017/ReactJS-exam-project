@@ -14,8 +14,6 @@ export default function Home() {
                 .catch(err => console.log(err));
         }, []);
 
-    console.log(colognes);
-
     return (
         <>
             <section className="hero">
