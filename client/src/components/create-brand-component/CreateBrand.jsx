@@ -11,7 +11,8 @@ export default function BrandCreate() {
         logo: "",
         country: "",
         type: "",
-        ownerId: user._id
+        ownerId: user._id,
+        likes: {}
     });
 
     const [error, setError] = useState(null);

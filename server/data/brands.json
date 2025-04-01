@@ -6,7 +6,8 @@
         "logo": "https://logos-download.com/wp-content/uploads/2021/01/Creed_1760_Logo.png",
         "country": "France",
         "type": "niche",
-        "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8"
+        "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+        "likes": []
     },
     "2": {
         "_id": "2",
@@ -14,7 +15,8 @@
         "description": "Christian Dior SE, commonly known as Dior, is a French luxury goods company controlled and chaired by French businessman Bernard Arnault, who also heads LVMH, the world's largest luxury group.",
         "logo": "https://cdn.freebiesupply.com/logos/large/2x/dior-logo-png-transparent.png",
         "country": "France",
-        "type": "designer"
+        "type": "designer",
+        "likes": []
     },
     "3": {
         "_id": "3",
@@ -22,6 +24,7 @@
         "description": "Xerjoff is an Italian fragrance company from Turin founded in 2007 by Sergio Momo and Dominique Salvo and is known for its high-quality fragrances.",
         "logo": "/brandsLogos/idA_FHUBtQ_1742313404362.png",
         "country": "France",
-        "type": "niche"
+        "type": "niche",
+        "likes": []
     }
 }

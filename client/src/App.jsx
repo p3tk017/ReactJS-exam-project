@@ -46,7 +46,7 @@ function App() {
         <Route path="/catalog/:cologneId" element={<CologneDetails/>} />
         <Route path="/brands" element={<Brands/>} />
         <Route path="/brands/:brandId" element={<BrandDetails />} />
-        <Route path="/brands/create" element={!user ? <Navigate to="/" /> : <BrandCreate user={user}/>} />
+        <Route path="/brands/create" element={!user ? <Navigate to="/" /> : <BrandCreate/>} />
         <Route path="/brands/edit/:brandId" element={!user ? <Navigate to="/" /> : <EditBrand/>} />
         <Route path="/brands/add-cologne/:brandId" element={<CologneCreate/>} />
         <Route path="/brands/delete/:brandId" element={<DeleteBrand/>} />

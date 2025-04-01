@@ -9,19 +9,21 @@ export default function BrandDetails() {
     const [fragrances, setFragrances] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-
+    const [commentText, setCommentText] = useState('');
+    const [comments, setComments] = useState([]);
+    
     const { user } = useContext(UserContext);
-
-    const isOwner = user && user._id === brand?.ownerId;
 
     useEffect(() => {
         fetch(`http://localhost:3030/jsonstore/brands`)
-            .then(res => {
-                return res.json();
-            })
+            .then(res => res.json())
             .then(data => {
                 const selectedBrand = data[brandId];
                 if (!selectedBrand) throw new Error("Brand not found");
+
+                if (!selectedBrand.likes) {
+                    selectedBrand.likes = [];
+                }
 
                 setBrand(selectedBrand);
             })
@@ -49,8 +51,49 @@ export default function BrandDetails() {
             });
     }, [brand]);
 
+    useEffect(() => {
+        fetch(`http://localhost:3030/jsonstore/comments/${brandId}`)
+            .then(res => res.json())
+            .then(data => setComments( Object.values(data) || [] ))
+            .catch((err) => console.log(err));
+    }, [brandId]);
+
+    const handleCommentSubmit = (e) => {
+        e.preventDefault();
+
+        if (commentText.trim() === '') return;
+
+        const newComment = {
+            author: user.username,
+            text: commentText,
+            date: new Date().toLocaleString(),
+        };
+
+        fetch(`http://localhost:3030/jsonstore/comments/${brandId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newComment),
+        })
+            .then((res) => res.json())
+            .then((comment) => {
+                setComments([...comments, comment]);
+                setCommentText('');
+            })
+            .catch((err) => console.log(err));
+    };
+
     if (loading) return <p>Loading...</p>;
     if (error || !brand) return <Navigate to="/404" />;
+
+    let isOwner = user && user._id === brand?.ownerId;
+
+    if (!brand.ownerId) {
+        isOwner = false;
+    }
+
+    console.log(comments);
 
     return (
         <div className={styles.detailsContainer}>
@@ -68,7 +111,7 @@ export default function BrandDetails() {
                     )}
                 </div>
             </div>
-            
+
             <div className={styles.catalogContainer}>
                 {fragrances.length > 0 ? (
                     fragrances.map(frag => (
@@ -88,6 +131,36 @@ export default function BrandDetails() {
                         <i className="fa-solid fa-plus"></i>
                     </Link>
                 )}
+            </div>
+
+            <div className={styles.commentSection}>
+                <h2>Comments</h2>
+
+                {!isOwner && (
+                    <form onSubmit={handleCommentSubmit} className={styles.commentForm}>
+                        <input
+                            type="text"
+                            placeholder="Add a comment..."
+                            value={commentText}
+                            onChange={(e) => setCommentText(e.target.value)}
+                            className={styles.commentInput}
+                        />
+                        <button type="submit" className={styles.commentSubmitButton}>Post</button>
+                    </form>
+                )}
+
+                <div className={styles.commentList}>
+                    {comments.length > 0 ? (
+                        comments.map(comment => (
+                            <div key={comment._id} className={styles.commentCard}>
+                                <p><strong>{comment.author}</strong> <span>{comment.date}</span></p>
+                                <p>{comment.text}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No comments yet.</p>
+                    )}
+                </div>
             </div>
         </div>
     );

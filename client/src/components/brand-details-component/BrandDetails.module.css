@@ -132,3 +132,76 @@
 .editButton:hover {
     background-color: #6a2c9a;
 }
+
+.likeButton {
+    padding: 10px 15px;
+    background-color: #6a2c9a;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+
+.likeButton:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.commentSection {
+    margin-top: 40px;
+}
+
+.commentForm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.commentInput {
+    width: 300px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.commentSubmitButton {
+    padding: 8px 16px;
+    background-color: #874bd1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.commentSubmitButton:hover {
+    background-color: #6a2c9a;
+}
+
+.commentList {
+    margin-top: 20px;
+}
+
+.commentCard {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.commentCard p {
+    margin: 5px 0;
+}
+
+.commentCard strong {
+    color: #333;
+}
+
+.commentCard span {
+    font-size: 12px;
+    color: #888;
+}
