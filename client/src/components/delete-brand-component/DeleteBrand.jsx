@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import { UserContext } from "../../contexts/userContext";
 import styles from "./DeleteBrand.module.css";
 
 export default function DeleteBrand() {
     const { brandId } = useParams();
+    const { user } = useContext(UserContext);
     const [brand, setBrand] = useState({});
     const [error, setError] = useState(null);
     const navigate = useNavigate();
@@ -23,6 +25,16 @@ export default function DeleteBrand() {
                 console.log(err);
             });
     }, [brandId]);
+
+    if (!brand.ownerId) {
+        return <p>Loading...</p>;
+    }
+
+    const isOwner = user && user._id === brand.ownerId;
+
+    if (!isOwner) {
+        return <Navigate to="/" />;
+    }
 
     const handleDelete = async () => {
         try {
