@@ -60,6 +60,12 @@ export default function BrandDetails() {
                     <h1 className={styles.name}>{brand.name}</h1>
                     <p className={styles.type}>{brand.type}</p>
                     <p className={styles.description}>{brand.description}</p>
+                    {isOwner && (
+                        <div className={styles.buttonsContainer}>
+                            <Link to={`/brands/edit/${brand._id}`} className={styles.editButton}>Edit</Link>
+                            <Link to={`/brands/delete/${brand._id}`} className={styles.editButton}>Delete</Link>
+                        </div>
+                    )}
                 </div>
             </div>
             

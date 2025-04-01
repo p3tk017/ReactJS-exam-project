@@ -1,10 +1,15 @@
-import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "./CreateBrand.module.css";
+import { useState, useContext, useEffect } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
+import styles from "./EditBrand.module.css";
 import { UserContext } from "../../contexts/userContext";
+import { useParams } from "react-router-dom";
 
-export default function BrandCreate() {   
-    const {user} = useContext(UserContext);
+export default function EditBrand() {
+    const { user } = useContext(UserContext);
+    const { brandId } = useParams();
+    const [brand, setBrand] = useState({});
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: "",
         description: "",
@@ -14,8 +19,31 @@ export default function BrandCreate() {
         ownerId: user._id
     });
 
-    const [error, setError] = useState(null);
-    const navigate = useNavigate();
+    useEffect(() => {
+        if (!brandId) return;
+
+        fetch(`http://localhost:3030/jsonstore/brands/${brandId}`)
+            .then(res => res.json())
+            .then(data => {
+                if (!data) throw new Error("Brand not found");
+                setBrand(data);
+                setFormData(data);
+            })
+            .catch((err) => {
+                setError(true);
+                console.log(err);
+            });
+    }, [brandId]);
+
+    if (!brand.ownerId) {
+        return <p>Loading...</p>;
+    }
+
+    const isOwner = user && user._id === brand.ownerId;
+
+    if (!isOwner) {
+        return <Navigate to="/" />;
+    }
 
     const handleChange = (e) => {
         setFormData({
@@ -34,8 +62,8 @@ export default function BrandCreate() {
         }
 
         try {
-            const response = await fetch("http://localhost:3030/jsonstore/brands", {
-                method: "POST",
+            const response = await fetch(`http://localhost:3030/jsonstore/brands/${brandId}`, {
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -46,7 +74,7 @@ export default function BrandCreate() {
                 throw new Error("Failed to create brand!");
             }
 
-            navigate("/brands");
+            navigate(`/brands/${brandId}`);
 
         } catch (err) {
             setError(err.message);  
@@ -55,7 +83,7 @@ export default function BrandCreate() {
 
     return (
         <div className={styles.brandContainer}>
-            <h2 className={styles.heading}>Create New Brand</h2>
+            <h2 className={styles.heading}>Edit Brand</h2>
             {error && <p className={styles.error}>{error}</p>}
             <form onSubmit={handleSubmit} className={styles.brandForm}>
                 <label>
@@ -86,7 +114,7 @@ export default function BrandCreate() {
                     </select>
                 </label>
 
-                <button type="submit">Create Brand</button>
+                <button type="submit">Edit Brand</button>
             </form>
         </div>
     );
