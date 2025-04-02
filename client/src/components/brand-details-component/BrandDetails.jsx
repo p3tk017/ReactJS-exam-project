@@ -64,7 +64,7 @@ export default function BrandDetails() {
         if (commentText.trim() === '') return;
 
         const newComment = {
-            author: user.username,
+            author: user.email,
             text: commentText,
             date: new Date().toLocaleString(),
         };

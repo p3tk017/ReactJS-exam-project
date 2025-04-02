@@ -69,7 +69,7 @@ export default function CologneCreate() {
         })
         .then(res => res.json())
         .then(() => {
-            navigate("/catalog");
+            navigate(`/brands/${brandId}`);
         })
         .catch(err => console.error("Error:", err));
     };
