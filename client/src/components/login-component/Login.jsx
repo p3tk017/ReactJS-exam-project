@@ -21,7 +21,6 @@ export default function Login({ setUser }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(null);
 
         try {
             const res = await fetch("http://localhost:3030/users/login", {
@@ -32,6 +31,10 @@ export default function Login({ setUser }) {
 
             if (!res.ok) {
                 throw new Error("Invalid email or password!");
+            }
+
+            if (res.message === "Login or password don't match") {
+                setError("Invalid email or password!")
             }
 
             const data = await res.json();
@@ -45,6 +48,11 @@ export default function Login({ setUser }) {
 
     return (
         <div className={styles.loginContainer}>
+            {error && (
+                <div className={styles.error}>
+                    {error}
+                </div>
+            )}
             <h1 className={styles.heading}>Login</h1>
             <form className={styles.loginForm} onSubmit={handleSubmit}>
                 <label>Email</label>

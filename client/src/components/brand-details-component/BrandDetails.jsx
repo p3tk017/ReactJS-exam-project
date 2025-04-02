@@ -93,8 +93,6 @@ export default function BrandDetails() {
         isOwner = false;
     }
 
-    console.log(comments);
-
     return (
         <div className={styles.detailsContainer}>
             <div className={styles.brandInfo}>

@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styles from './Register.module.css';
 
 export default function Register({ setUser }) {
-
-
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -20,12 +18,38 @@ export default function Register({ setUser }) {
         });
     };
 
+    const validateForm = () => {
+        if (!formData.email.includes("@")) {
+            console.log("Email must contain '@'");
+            return "Email must contain '@'";
+        }
+        if (formData.email.length < 1) {
+            console.log("Missing email!");
+            return "Missing email!"
+        }
+        if (formData.password.length < 5) {
+            console.log("Password must be at least 5 characters long");
+            return "Password must be at least 5 characters long";
+        }
+        if (formData.password.length < 1) {
+            console.log("Missing password!");
+            return "Missing password!";
+        }
+        if (formData.password !== formData.confirmPassword) {
+            console.log("Passwords do not match!");
+            return "Passwords do not match!";
+        }
+        return null;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
 
-        if (formData.password !== formData.confirmPassword) {
-            setError("Passwords do not match!");
+        const validationError = validateForm();
+        if (validationError) {
+            setError(validationError);
+            console.log(validationError);
             return;
         }
 
@@ -42,7 +66,7 @@ export default function Register({ setUser }) {
             });
 
             if (!response.ok) {
-                throw new Error("Registration failed!");
+                setError("Registration failed!");
             }
 
             const data = await response.json();
@@ -57,6 +81,11 @@ export default function Register({ setUser }) {
 
     return (
         <div className={styles.registerContainer}>
+            {error && (
+                <div className={styles.errorContainer}>
+                    <p>{error}</p>
+                </div>
+            )}  
             <h1 className={styles.heading}>Register</h1>
             <form className={styles.registerForm} onSubmit={handleSubmit}>
                 <label>Email</label>

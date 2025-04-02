@@ -47,3 +47,12 @@
 .registerLink {
     text-decoration: none;
 }
+
+.error {
+    margin: 0 auto;
+    padding: 1em;
+    background-color: #874bd1;
+    color: #f9f9f9;
+    max-width: 300px;
+    border-radius: 0.5em;
+}
